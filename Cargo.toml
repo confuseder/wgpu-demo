@@ -1,0 +1,19 @@
+[package]
+name = "wgpu-demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytemuck = "1.25.0"
+calloop = "0.14.3"
+env_logger = "0.11.8"
+pollster = "0.4.0"
+raw-window-handle = "0.6.2"
+smithay-client-toolkit = { version = "0.20.0", features = ["calloop"] }
+wayland-backend = { version = "0.3.12", features = [
+    "client_system",
+    "dlopen",
+    "rwh_06"
+] }
+wayland-client = "0.31.12"
+wgpu = "28.0.0"
