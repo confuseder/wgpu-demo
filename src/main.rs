@@ -135,6 +135,8 @@ fn main() {
         ..Default::default()
     });
 
+    println!("{:#?}", surface.get_capabilities(&adapter).formats);
+
     let pipeline = device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
         layout: Some(&pipeline_layout),
         vertex: wgpu::VertexState {
@@ -147,7 +149,7 @@ fn main() {
             module: &shader,
             entry_point: Some("fs_main"),
             targets: &[Some(wgpu::ColorTargetState {
-                format: wgpu::TextureFormat::Bgra8UnormSrgb,
+                format: surface.get_capabilities(&adapter).formats[0],
                 blend: None,
                 write_mask: wgpu::ColorWrites::ALL,
             })],
